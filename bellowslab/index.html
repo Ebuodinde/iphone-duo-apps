@@ -1,16 +1,292 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BellowsLab: Fold Synth</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BellowsLab: Fold Synth — Synth, Drum Machine, Live DJ &amp; 4-Track Tape Studio</title>
+<meta name="description" content="A dual-oscillator analog-modeled synth, 4-track stereo reel-to-reel looper, 16-step analog drum machine, live DJ deck, and external USB audio interface preamp where iPhone Duo's hinge becomes an expression pedal.">
 <link rel="stylesheet" href="../style.css">
+<style>
+  :root {
+    --bg: #131416;
+    --surface: #1f2023;
+    --surface-2: #282a2e;
+    --border: rgba(255, 255, 255, 0.10);
+    --text: #f3f1ed;
+    --muted: #a9abb3;
+    --copper: #e38c4d;
+    --copper-soft: rgba(227, 140, 77, 0.16);
+    --phosphor: #78fa9f;
+    --phosphor-soft: rgba(120, 250, 159, 0.14);
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(1200px 600px at 80% -10%, rgba(227, 140, 77, 0.14), transparent 60%),
+                radial-gradient(900px 500px at 10% 10%, rgba(120, 250, 159, 0.08), transparent 55%),
+                var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--copper); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 28px 20px 72px;
+  }
+  nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+  }
+  nav a { color: var(--muted); }
+  nav a:hover { color: var(--text); }
+  nav .spacer { flex: 1; }
+  .hero {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 28px;
+    align-items: center;
+    padding: 40px 0 32px;
+  }
+  .icon {
+    width: 112px;
+    height: 112px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(227, 140, 77, 0.25);
+    display: block;
+  }
+  .badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: var(--copper-soft);
+    border: 1px solid rgba(227, 140, 77, 0.45);
+    color: var(--copper);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  h1 {
+    margin: 0 0 8px;
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+  }
+  .lead {
+    margin: 0 0 18px;
+    font-size: 1.12rem;
+    color: var(--muted);
+    max-width: 62ch;
+  }
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 20px;
+    border-radius: 12px;
+    background: var(--copper);
+    color: #131416;
+    font-weight: 700;
+    font-size: 0.96rem;
+    text-decoration: none;
+  }
+  .btn-primary:hover { filter: brightness(1.06); text-decoration: none; }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 11px 16px;
+    border-radius: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.94rem;
+  }
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0 36px;
+  }
+  .pill {
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    font-size: 0.84rem;
+    color: var(--muted);
+  }
+  .pill.accent {
+    background: var(--phosphor-soft);
+    border-color: rgba(120, 250, 159, 0.35);
+    color: var(--phosphor);
+  }
+  h2 {
+    margin: 44px 0 16px;
+    font-size: 1.45rem;
+    letter-spacing: -0.015em;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+    gap: 14px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px;
+  }
+  .card-tag {
+    display: inline-block;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--copper);
+    margin-bottom: 6px;
+  }
+  .card h3 {
+    margin: 0 0 6px;
+    font-size: 1.05rem;
+  }
+  .card p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+  .specs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .spec-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .spec-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.93rem;
+    color: var(--muted);
+  }
+  .spec-list li:last-child { border-bottom: none; }
+  .spec-list strong { color: var(--text); font-weight: 600; }
+  footer {
+    margin-top: 56px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+  @media (max-width: 600px) {
+    .hero { grid-template-columns: 1fr; gap: 18px; }
+    .icon { width: 88px; height: 88px; border-radius: 20px; }
+  }
+</style>
 </head>
-<body><main>
-<nav><a href="../">Apps</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a></nav>
-<img class="icon" src="icon.png" alt="BellowsLab icon">
-<h1>BellowsLab</h1>
-<p>A hinge-pedal synthesizer and 4-track reel-to-reel looper, made for iPhone Duo and great on every iPhone and iPad.</p>
-<p class="muted">One purchase. No subscription, no account, no ads, no tracking.</p>
-<p><a href="support.html">Support</a> · <a href="privacy.html">Privacy Policy</a></p>
-</main></body>
+<body>
+<main>
+  <nav>
+    <a href="../">Studio Portfolio</a>
+    <span class="spacer"></span>
+    <a href="support.html">Support</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </nav>
+
+  <section class="hero">
+    <img class="icon" src="icon.png" alt="BellowsLab app icon">
+    <div>
+      <span class="badge">Optimized for iPhone Duo</span>
+      <h1>BellowsLab: Fold Synth</h1>
+      <p class="lead">A tactile analog-modeled synthesizer and 4-track reel-to-reel looper that turns iPhone Duo's hinge (85°–165°) into an acoustic bellows expression pedal — and performs completely on every standard iPhone and iPad.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="https://apps.apple.com/app/bellowslab-fold-synth/id6834745901">Download on the App Store</a>
+        <a class="btn-secondary" href="support.html">Support &amp; FAQ</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="pill-row">
+    <span class="pill accent">Zero Accounts · Zero Ads · Zero Subscriptions</span>
+    <span class="pill">48 kHz Lock-Free Stereo C-Audio DSP</span>
+    <span class="pill">USB Audio / Mic Input Rack</span>
+    <span class="pill">16-Step Analog Drums &amp; Live DJ Deck</span>
+    <span class="pill">WAV · M4A · 4-Track Stems Export</span>
+    <span class="pill">English · Türkçe · Deutsch</span>
+  </div>
+
+  <h2>Four Postures, One Continuous Studio</h2>
+  <div class="grid">
+    <article class="card">
+      <div class="card-tag">Tabletop · 85°–125°</div>
+      <h3>Synth Deck + Hinge Pedal</h3>
+      <p>Play isometric scale &amp; chord pads, 16-step analog drums, or DJ crossfader controls below the crease while flexing the upper screen as an expression pedal.</p>
+    </article>
+    <article class="card">
+      <div class="card-tag">Book · 125°–155°</div>
+      <h3>Live Scope &amp; 4-Track Stereo Mix</h3>
+      <p>Side-by-side arrangement puts play pads, drum patterns, and DJ FX opposite the 120 Hz phosphor oscilloscope and four stereo tape tracks.</p>
+    </article>
+    <article class="card">
+      <div class="card-tag">Flat · 155°–180°</div>
+      <h3>Dual-Hand Console</h3>
+      <p>Expansive workstation across the full 7.6-inch inner display and iPad, with real-time Split View resizing, asymmetric safe-area support, and WAV/M4A loop import.</p>
+    </article>
+    <article class="card">
+      <div class="card-tag">Closed · 5.4" Cover</div>
+      <h3>Pocket DJ Cassette Deck</h3>
+      <p>Shut the device without stopping a bar. Toggle track mutes, sweep the DJ Isolator Filter, trigger Vinyl Tape Brake, or flip saved sessions one-handed.</p>
+    </article>
+  </div>
+
+  <h2>Sound Engine, Input Rack &amp; DJ Deck</h2>
+  <div class="specs">
+    <div class="card">
+      <h3>Real-Time Analog Synth &amp; 16-Step Drums</h3>
+      <ul class="spec-list">
+        <li><strong>Architecture:</strong> 8-voice dual-oscillator synth with sub-oscillator, ZDF resonant filter, dual ADSR, LFO, stereo delay &amp; reverb</li>
+        <li><strong>12 Factory Presets:</strong> Bellows Organ, Glass Keys, Reed Lead, Tape Strings, Sub Bass, Dust Pad, Pluck Box, Wah Clav, Amber Clav, Glass Horizon, Acid Bass, Velvet Rhodes</li>
+        <li><strong>16-Step Drum Synth &amp; Hinge Mapping:</strong> Kick, Snare, Hat &amp; Clap with swing and 6 grooves; assign the 85°–165° hinge or touch pedal to Cutoff, Wah, Tape Pitch, DJ Filter, or Crossfader</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>External Input Rack, Live DJ &amp; 24-Bit Export</h3>
+      <ul class="spec-list">
+        <li><strong>USB Audio &amp; Mic Input Rack:</strong> Opt-in <code>.playAndRecord</code> measurement routing for USB interfaces, instruments &amp; mics (Ch 1, Ch 2, Stereo 1+2, Preamp Gain, Noise Gate, Low-Cut, Tube Drive, Live Monitor)</li>
+        <li><strong>Stereo Mixer &amp; Live DJ Deck:</strong> Per-track Pan, EQ Tilt, Reverse, Solo, WAV/M4A file import, Deck A/B Crossfader, bipolar Master Isolator Filter, Beat Stutter (1/4–1/16) &amp; Vinyl Tape Brake</li>
+        <li><strong>Audio Formats &amp; Privacy:</strong> Export Master Mix or 4 isolated stems as 24-bit / 48 kHz WAV or M4A offline — zero accounts, zero tracking, zero network calls</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2026 BellowsLab — One-time purchase · 100% offline</span>
+    <span><a href="support.html">Support</a> · <a href="privacy.html">Privacy Policy</a> · <a href="../">All Apps</a></span>
+  </footer>
+</main>
+</body>
 </html>

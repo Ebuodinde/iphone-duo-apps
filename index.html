@@ -1,41 +1,304 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>iPhone Duo Apps</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iPhone Duo Studio Portfolio — Nine Paid-Once Apps</title>
+<meta name="description" content="Nine paid-once, 100% offline studio tools and games engineered for the foldable geometry of iPhone Duo — and complete on every iPhone and iPad. Zero subscriptions, zero accounts, zero ads, zero data collection.">
 <link rel="stylesheet" href="style.css">
+<style>
+  :root {
+    --bg: #0c1017;
+    --panel: #141923;
+    --panel-hover: #19202d;
+    --border: rgba(255, 255, 255, 0.09);
+    --fg: #f5f3ef;
+    --muted: #9aa3b2;
+    --accent: #f06428;
+  }
+  body {
+    background: radial-gradient(1100px 520px at 85% -8%, rgba(240, 100, 40, 0.12), transparent 60%),
+                radial-gradient(900px 480px at 10% 4%, rgba(56, 217, 255, 0.08), transparent 55%),
+                var(--bg);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  main {
+    max-width: 920px;
+    padding: 48px 22px 84px;
+  }
+  .hero {
+    margin-bottom: 34px;
+  }
+  .eyebrow {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.04);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-size: clamp(2rem, 4.4vw, 2.85rem);
+    letter-spacing: -0.025em;
+    line-height: 1.08;
+    margin: 0 0 10px;
+  }
+  .hero-lead {
+    color: var(--muted);
+    font-size: 1.08rem;
+    max-width: 64ch;
+    margin: 0;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+  }
+  section.app-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 20px 22px 20px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  section.app-card:hover {
+    background: var(--panel-hover);
+    border-color: rgba(255, 255, 255, 0.16);
+  }
+  .app-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .app-head img.icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    flex-shrink: 0;
+  }
+  .app-tag {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .app-head h2 {
+    margin: 0;
+    font-size: 1.18rem;
+    line-height: 1.2;
+  }
+  .app-head h2 a {
+    color: var(--fg);
+    text-decoration: none;
+  }
+  .app-head h2 a:hover {
+    text-decoration: underline;
+  }
+  .app-desc {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.94rem;
+    line-height: 1.5;
+    flex: 1;
+  }
+  .app-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+  .app-links a {
+    text-decoration: none;
+  }
+  .app-links a:hover {
+    text-decoration: underline;
+  }
+  .site-footer {
+    margin-top: 44px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.86rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+  }
+</style>
 </head>
-<body><main>
-<h1>iPhone Duo Apps</h1>
-<p class="muted">Small, paid-once apps built for the foldable iPhone. No subscriptions, no accounts, no ads, no data collection.</p>
-<section>
-<h2><a href="bellowslab/">BellowsLab: Fold Synth</a></h2>
-<p>Dual-oscillator hinge-pedal synthesizer and 4-track reel-to-reel looper — Optimized for iPhone Duo and complete on every iPhone and iPad. <a href="bellowslab/support.html">Support</a> · <a href="bellowslab/privacy.html">Privacy</a></p>
-</section>
-<section>
-<h2><a href="prismfold/">PrismFold</a></h2>
-<p>Physical light-bending optics puzzle across 60 levels. <a href="prismfold/support.html">Support</a> · <a href="prismfold/privacy.html">Privacy</a></p>
-</section>
-<section>
-<h2><a href="sanctuarytent/">SanctuaryTent</a></h2>
-<p>Fold StandBy focus clock, Zen sand garden and procedural soundscape. <a href="sanctuarytent/support.html">Support</a> · <a href="sanctuarytent/privacy.html">Privacy</a></p>
-</section>
-<section>
-<h2><a href="creasetactics/">CreaseTactics</a></h2>
-<p>Face-to-face submarine duel across the central crease, 15-mission AI campaign and 3-shot cover sonar puzzle. <a href="creasetactics/support.html">Support</a> · <a href="creasetactics/privacy.html">Privacy</a></p>
-</section>
+<body>
+<main>
+  <header class="hero">
+    <span class="eyebrow">iOS 27.1 · English · Türkçe · Deutsch · Up to 18 Languages</span>
+    <h1>iPhone Duo Apps</h1>
+    <p class="hero-lead">Nine paid-once, 100% offline studio tools and games engineered for the foldable geometry of iPhone Duo — and complete on every iPhone and iPad. No subscriptions, no accounts, no ads, and zero data collection.</p>
+  </header>
 
-<section>
-<h2><a href="miseenfold/">MiseEnFold</a></h2>
-<p>Hands-free countertop L-fold recipe stand with 1,800+ offline recipes, live ratio scaling &amp; parallel pot timer deck for iPhone Duo, iPhone &amp; iPad. <a href="miseenfold/support.html">Support</a> · <a href="miseenfold/privacy.html">Privacy</a></p>
-</section>
-<section>
-<h2><a href="foliomargin/">FolioMargin</a></h2>
-<p>Two-leaf academic PDF reader, PencilKit margin notebook, elastic ink bridges, offline Vision OCR search &amp; cover flashcards for iPhone Duo, iPhone &amp; iPad. <a href="foliomargin/support.html">Support</a> · <a href="foliomargin/privacy.html">Privacy</a></p>
-</section>
-<section>
-<h2><a href="cuebridge/">CueBridge</a></h2>
-<p>Dual-screen cover eye-contact teleprompter, 48 MP director monitor, tabletop solo-vlogger studio, offline voice-follow &amp; H.264 take vault for iPhone Duo, iPhone &amp; iPad. <a href="cuebridge/support.html">Support</a> · <a href="cuebridge/privacy.html">Privacy</a></p>
-</section>
-</main></body>
+  <div class="grid">
+    <section class="app-card">
+      <div class="app-head">
+        <a href="bellowslab/"><img class="icon" src="bellowslab/icon.png" alt="BellowsLab app icon"></a>
+        <div>
+          <span class="app-tag" style="color:#f06428;">Music · Analog Studio</span>
+          <h2><a href="bellowslab/">BellowsLab: Fold Synth</a></h2>
+        </div>
+      </div>
+      <p class="app-desc">8-voice dual-oscillator synth with 16 handcrafted patches, smart chord pads, live ADSR curve, CRT phosphor scope, 16-step analog drums, live DJ deck, USB audio input rack, 4-track tape warmth, and 5.4&Prime; cover cassette deck.</p>
+      <div class="app-links">
+        <a href="bellowslab/" style="color:#f06428;">Overview</a>
+        <a href="bellowslab/support.html" style="color:#9aa3b2;">Support</a>
+        <a href="bellowslab/privacy.html" style="color:#9aa3b2;">Privacy</a>
+      </div>
+    </section>
+
+    <section class="app-card">
+      <div class="app-head">
+        <a href="prismfold/"><img class="icon" src="prismfold/icon.png" alt="PrismFold app icon"></a>
+        <div>
+          <span class="app-tag" style="color:#38d9ff;">Puzzle · Physical Optics</span>
+          <h2><a href="prismfold/">PrismFold: Light Crease</a></h2>
+        </div>
+      </div>
+      <p class="app-desc">Bend light across 100 optical puzzles in 5 chapters with real-time Metal chromatic caustics, machined brass goniometer vernier controls, 3-port RGB Cover Spectrometer Ring, and Daily Spectral Lock sandbox.</p>
+      <div class="app-links">
+        <a href="prismfold/" style="color:#38d9ff;">Overview</a>
+        <a href="prismfold/support.html" style="color:#9aa3b2;">Support</a>
+        <a href="prismfold/privacy.html" style="color:#9aa3b2;">Privacy</a>
+      </div>
+    </section>
+
+    <section class="app-card">
+      <div class="app-head">
+        <a href="sanctuarytent/"><img class="icon" src="sanctuarytent/icon.png" alt="SanctuaryTent app icon"></a>
+        <div>
+          <span class="app-tag" style="color:#e5a956;">Productivity · Deep Focus</span>
+          <h2><a href="sanctuarytent/">SanctuaryTent</a></h2>
+        </div>
+      </div>
+      <p class="app-desc">2-meter StandBy tent focus clock with 3 architectural faces, 4 Metal living atmospheres, sculpted bronze ritual deck, 3D Zen sand garden, 5-layer procedural soundscape, and gentle 10 s cover-lock Live Activities.</p>
+      <div class="app-links">
+        <a href="sanctuarytent/" style="color:#e5a956;">Overview</a>
+        <a href="sanctuarytent/support.html" style="color:#9aa3b2;">Support</a>
+        <a href="sanctuarytent/privacy.html" style="color:#9aa3b2;">Privacy</a>
+      </div>
+    </section>
+
+    <section class="app-card">
+      <div class="app-head">
+        <a href="miseenfold/"><img class="icon" src="miseenfold/icon.png" alt="MiseEnFold app icon"></a>
+        <div>
+          <span class="app-tag" style="color:#df6b3b;">Food &amp; Drink · Sous-Chef</span>
+          <h2><a href="miseenfold/">MiseEnFold</a></h2>
+        </div>
+      </div>
+      <p class="app-desc">Countertop L-fold recipe stand with 1,800+ trilingual offline recipes, induction heat-bar pot timers, live pantry ratio scaling, cookbook Vision OCR import, on-device voice commands, and 5.4&Prime; cover aisle checklist.</p>
+      <div class="app-links">
+        <a href="miseenfold/" style="color:#df6b3b;">Overview</a>
+        <a href="miseenfold/support.html" style="color:#9aa3b2;">Support</a>
+        <a href="miseenfold/privacy.html" style="color:#9aa3b2;">Privacy</a>
+      </div>
+    </section>
+
+    <section class="app-card">
+      <div class="app-head">
+        <a href="foliomargin/"><img class="icon" src="foliomargin/icon.png" alt="FolioMargin app icon"></a>
+        <div>
+          <span class="app-tag" style="color:#e6a43a;">Productivity · Academic PDF</span>
+          <h2><a href="foliomargin/">FolioMargin</a></h2>
+        </div>
+      </div>
+      <p class="app-desc">Two-leaf archival PDF reader opposite a PencilKit margin notebook with luminous elastic ink bridges, 4 paper templates, 3 reading themes, offline Vision handwriting OCR search, cover flashcards, and 2-up PDF export.</p>
+      <div class="app-links">
+        <a href="foliomargin/" style="color:#e6a43a;">Overview</a>
+        <a href="foliomargin/support.html" style="color:#9aa3b2;">Support</a>
+        <a href="foliomargin/privacy.html" style="color:#9aa3b2;">Privacy</a>
+      </div>
+    </section>
+
+    <section class="app-card">
+      <div class="app-head">
+        <a href="cuebridge/"><img class="icon" src="cuebridge/icon.png" alt="CueBridge app icon"></a>
+        <div>
+          <span class="app-tag" style="color:#f5a623;">Photo &amp; Video · Teleprompter</span>
+          <h2><a href="cuebridge/">CueBridge</a></h2>
+        </div>
+      </div>
+      <p class="app-desc">48 MP eye-contact cover teleprompter &amp; cinema framing monitor with SMPTE timecode, peak-hold dB meter, vernier WPM dial, 3 s breathing tally, solo-vlogger tabletop stand, voice follow, and local H.264 take vault.</p>
+      <div class="app-links">
+        <a href="cuebridge/" style="color:#f5a623;">Overview</a>
+        <a href="cuebridge/support.html" style="color:#9aa3b2;">Support</a>
+        <a href="cuebridge/privacy.html" style="color:#9aa3b2;">Privacy</a>
+      </div>
+    </section>
+
+    <section class="app-card">
+      <div class="app-head">
+        <a href="foldorbit/"><img class="icon" src="foldorbit/icon.png" alt="FoldOrbit app icon"></a>
+        <div>
+          <span class="app-tag" style="color:#38bdf8;">Games · Orbital Strategy</span>
+          <h2><a href="foldorbit/">FoldOrbit: Event Horizon</a></h2>
+        </div>
+      </div>
+      <p class="app-desc">Deterministic RK4 N-body orbital strategy across 15 campaign sectors, 180° face-to-face 2-player gravity duels across the fold, and a daily 5.4&Prime; Cover Slingshot challenge in 18 languages.</p>
+      <div class="app-links">
+        <a href="foldorbit/" style="color:#38bdf8;">Overview</a>
+        <a href="foldorbit/support.html" style="color:#9aa3b2;">Support</a>
+        <a href="foldorbit/privacy.html" style="color:#9aa3b2;">Privacy</a>
+      </div>
+    </section>
+
+    <section class="app-card">
+      <div class="app-head">
+        <a href="phaserift/"><img class="icon" src="phaserift/icon.png" alt="PhaseRift app icon"></a>
+        <div>
+          <span class="app-tag" style="color:#a78bfa;">Games · Cymatic Wave Tactics</span>
+          <h2><a href="phaserift/">PhaseRift: Wave Strategy</a></h2>
+        </div>
+      </div>
+      <p class="app-desc">Weaponize real-time Chladni standing-wave interference across 15 acoustic chambers, simultaneous WeGo 2-player tabletop wave duels, and a daily 5.4&Prime; Cover Cymatic Lock puzzle in 18 languages.</p>
+      <div class="app-links">
+        <a href="phaserift/" style="color:#a78bfa;">Overview</a>
+        <a href="phaserift/support.html" style="color:#9aa3b2;">Support</a>
+        <a href="phaserift/privacy.html" style="color:#9aa3b2;">Privacy</a>
+      </div>
+    </section>
+
+    <section class="app-card">
+      <div class="app-head">
+        <a href="faultline/"><img class="icon" src="faultline/icon.png" alt="FaultLine app icon"></a>
+        <div>
+          <span class="app-tag" style="color:#fb7185;">Games · Tectonic Terrain</span>
+          <h2><a href="faultline/">FaultLine: Rift Tactics</a></h2>
+        </div>
+      </div>
+      <p class="app-desc">Sculpt elevation in real-time 40&times;60 dual-fluid magma and hydro terrain warfare across 15 tectonic sectors, 180° 2-player tabletop duels, and a daily 5.4&Prime; Cover Watershed puzzle in 18 languages.</p>
+      <div class="app-links">
+        <a href="faultline/" style="color:#fb7185;">Overview</a>
+        <a href="faultline/support.html" style="color:#9aa3b2;">Support</a>
+        <a href="faultline/privacy.html" style="color:#9aa3b2;">Privacy</a>
+      </div>
+    </section>
+  </div>
+
+  <footer class="site-footer">
+    <span>One upfront purchase · Zero subscriptions · 100% offline</span>
+    <span>© 2026 Şahin Uygutalp</span>
+  </footer>
+</main>
+</body>
 </html>
